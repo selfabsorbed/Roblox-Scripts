@@ -1,3 +1,4 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/Grind"))()
 
 queue_on_teleport("if game.PlaceId ~= 11170059897 then if not game:IsLoaded() then game.Loaded:Wait() end game:GetService('TeleportService'):TeleportToPlaceInstance(6764533218, game:GetService('HttpService'):JSONDecode(game:HttpGet(string.format('https://games.roblox.com/v1/games/%s/servers/Public?sortOrder=Asc&limit=100', game.PlaceId))).data[1].id) queue_on_teleport('if not game:IsLoaded() then game.Loaded:Wait() end loadstring(game:HttpGet(\"https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/Loader\"))()') end")
+game:GetService("TeleportService"):Teleport(11170059897)
