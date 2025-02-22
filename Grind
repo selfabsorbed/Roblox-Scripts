@@ -1,1 +1,51 @@
-
+local Checkpoints = {
+    CFrame.new(1792.5181884765625, -8.365150451660156, -5063.54931640625),
+    CFrame.new(1794.2518310546875, -8.365150451660156, -5256.560546875),
+    CFrame.new(1664.668212890625, -8.365150451660156, -5326.26708984375),
+    CFrame.new(1622.223388671875, -8.365344047546387, -5184.263671875),
+    CFrame.new(1481.350830078125, 34.03483963012695, -5190.8251953125),
+    CFrame.new(1347.898681640625, -2.565152168273926, -5502.9951171875),
+    CFrame.new(1341.3406982421875, -2.565152168273926, -5166.17431640625),
+    CFrame.new(1229.6658935546875, -9.565153121948242, -5429.54296875),
+    CFrame.new(1229.3155517578125, -9.565153121948242, -5757.13720703125),
+    CFrame.new(1161.863525390625, -9.565155029296875, -5834.828125),
+    CFrame.new(1155.380126953125, -9.565155029296875, -5695.00830078125),
+    CFrame.new(1154.84130859375, -11.16515064239502, -5537.79052734375),
+    CFrame.new(1173.638671875, -11.16515064239502, -5248.50927734375),
+    CFrame.new(1169.369140625, -11.165151596069336, -5071.77294921875),
+    CFrame.new(1323.6044921875, -9.16515064239502, -5070.29248046875),
+    CFrame.new(1515.4141845703125, -8.365150451660156, -5076.44970703125)
+ 
+}
+ 
+game.Players.LocalPlayer.PlayerGui.Fade.Enabled = false
+ 
+local function Delay()
+    task.wait(game.Players.LocalPlayer:GetNetworkPing() * 2 + .1)
+end
+ 
+local function Teleport(cframe)
+    game.Players.LocalPlayer.Character.PrimaryPart.CFrame = cframe
+    Delay()
+end
+ 
+local State = nil
+game:GetService("ReplicatedStorage"):WaitForChild("MiscRemotes"):WaitForChild("ObbyEvent").OnClientEvent:Connect(function(arg)
+    State = arg
+end)
+ 
+repeat
+    repeat
+        Teleport(CFrame.new(342.0227355957031, 5.03237247467041, -141.41107177734375))
+    until State == "SpawnObby"
+ 
+    for _, Checkpoint in pairs(Checkpoints) do
+        Teleport(Checkpoint)
+    end
+ 
+    repeat
+        Teleport(CFrame.new(538.3120727539062, 2.9021737575531006, -250.88331604003906))
+    until State == "DespawnObby"
+ 
+    print(game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value)
+until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value >= 64
