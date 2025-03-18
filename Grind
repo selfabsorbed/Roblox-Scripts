@@ -27,7 +27,7 @@ repeat
 		-- repeat
 			firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, Checkpoints[Number], 0)
 			firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, Checkpoints[Number], 1)
-			task.wait()
+			game:GetService("RunService").Heartbeat:Wait()
 		-- until State == "Claimed"
 		-- State = nil
 	end
