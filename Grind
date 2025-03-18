@@ -18,11 +18,9 @@ game:GetService("ReplicatedStorage"):WaitForChild("MiscRemotes"):WaitForChild("O
 end)
 
 repeat
-	repeat
-		firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 0)
-		firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 1)
-		task.wait()
-	until State == "Start"
+	firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 0)
+	firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 1)
+	repeat task.wait() until State == "Start"
 	State = nil
 
 	for Number = 1, #Checkpoints do
