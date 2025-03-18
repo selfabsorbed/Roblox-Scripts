@@ -17,7 +17,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("MiscRemotes"):WaitForChild("O
 	end
 end)
 
-while true do
+repeat
 	repeat
 		firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 0)
 		firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 1)
@@ -36,4 +36,4 @@ while true do
 
 	repeat task.wait() until State == "End"
 	State = nil
-end
+until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value >= 64
