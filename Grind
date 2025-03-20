@@ -36,6 +36,6 @@ repeat
 
 	repeat task.wait() until State == "End"
 	State = nil
-until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value >= 64
 
-print(game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value)
+	print(game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value)
+until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value >= 64
