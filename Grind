@@ -6,36 +6,17 @@ for _, Checkpoint in workspace.ObbyCheckpoints.NatureObby:GetChildren() do
 	Checkpoints[Checkpoint:GetAttribute("Number")] = Checkpoint.Cylinder
 end
 
-local State = nil
-game:GetService("ReplicatedStorage"):WaitForChild("MiscRemotes"):WaitForChild("ObbyEvent").OnClientEvent:Connect(function(state)
-	if state == "SpawnObby" then
-		State = "Start"
-	elseif state == "DespawnObby" then
-		State = "End"
-	elseif state == "ClaimCheckpoint" then
-		State = "Claimed"
-	end
-end)
-
 repeat
-    	repeat
-	        firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 0)
-	        firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 1)
-	        task.wait()
-    	until State == "Start"
-	State = nil
+    firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 0)
+    firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, workspace.Portals.Portals.NatureObbyPortal.Teleport, 1)
 
-	for Number = (game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Progress.Value == 0 and 1 or game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Progress.Value), #Checkpoints do
-		repeat
-			firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, Checkpoints[Number], 0)
-			firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, Checkpoints[Number], 1)
-			task.wait()
-		until State == "Claimed"
-		State = nil
-	end
+    for Number = (game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Progress.Value == 0 and 1 or game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Progress.Value), #Checkpoints do
+        repeat
+            firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, Checkpoints[Number], 0)
+            firetouchinterest(game.Players.LocalPlayer.Character.PrimaryPart, Checkpoints[Number], 1)
+            task.wait()
+        until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Progress.Value == Number
+    end
 
-	repeat task.wait() until State == "End"
-	State = nil
-
-	print(game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value)
+    repeat task.wait() until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Progress.Value == 0
 until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value >= 64
