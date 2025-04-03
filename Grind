@@ -19,4 +19,5 @@ repeat
     end
 
     repeat task.wait() until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Progress.Value == 0
+    print(game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value)
 until game.Players.LocalPlayer.plrStats.Obbies.NatureObby.Completions.Value >= 64
