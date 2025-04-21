@@ -1,0 +1,19 @@
+while true do
+    local VisibleEgg = nil
+
+    for _, Egg in workspace.EggLocations2025:GetChildren() do
+        if Egg.Transparency == 0 then
+            VisibleEgg = Egg
+            break
+        end
+    end
+
+    if not VisibleEgg then break end
+
+    game.Players.LocalPlayer.Character.PrimaryPart.CFrame = VisibleEgg.CFrame
+    task.wait((game:GetService("Stats").PerformanceStats.Ping:GetValue() / 2000) + .1)
+    fireproximityprompt(VisibleEgg.EggHunt)
+end
+
+game:GetService("ReplicatedStorage").MiscRemotes.WashiezEvent:FireServer("Skill")
+game:GetService("ReplicatedStorage").MiscRemotes.WashiezEvent:FireServer("Coins")
