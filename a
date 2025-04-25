@@ -1,5 +1,11 @@
 workspace.Gravity = 0
 
+for _, p in workspace:GetDescendants() do
+    if p:IsA("BasePart") then
+        p.CanCollide = false
+    end
+end
+
 while true do
     local VisibleEgg = nil
 
