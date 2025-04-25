@@ -1,3 +1,5 @@
+workspace.Gravity = 0
+
 while true do
     local VisibleEgg = nil
 
@@ -10,7 +12,7 @@ while true do
 
     if not VisibleEgg then break end
 
-    game.Players.LocalPlayer.Character.PrimaryPart.CFrame = VisibleEgg.CFrame
+    game.Players.LocalPlayer.Character.PrimaryPart.CFrame = VisibleEgg.CFrame - Vector3.new(0, 10, 0)
     task.wait((game:GetService("Stats").PerformanceStats.Ping:GetValue() / 2000) + .1)
     fireproximityprompt(VisibleEgg.EggHunt)
 end
