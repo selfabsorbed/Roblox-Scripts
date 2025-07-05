@@ -11,6 +11,7 @@ end
 
 if game.PlaceId == 6764533218 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
+    print(LocalPlayer.Name)
     if not LocalPlayer:WaitForChild("HatchInfo"):WaitForChild("isParticipating").Value then
         TeleportService:Teleport(98209635344835)
     end
