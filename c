@@ -5,6 +5,11 @@ local TeleportService = game:GetService("TeleportService")
 
 local LocalPlayer = Players.LocalPlayer
 
+if not LocalPlayer then
+    Players:GetPropertyChangedSignal("LocalPlayer"):Wait()
+    LocalPlayer = Players.LocalPlayer
+end
+
 local function Delay()
     task.wait((Stats.PerformanceStats.Ping:GetValue() / 2000) + .25)
 end
