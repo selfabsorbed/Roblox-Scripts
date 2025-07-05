@@ -45,6 +45,7 @@ if game.PlaceId == 6764533218 then
         until LocalPlayer:WaitForChild("plrStats"):WaitForChild("TempData"):WaitForChild("TheHatch2025"):WaitForChild("RewardsGiven").Value
     end)
 
+    Delay()
     ReplicatedStorage:WaitForChild("MiscRemotes"):WaitForChild("THE_HATCH"):FireServer("SpawnEgg")
     
 elseif game.PlaceId == 11170059897 then
