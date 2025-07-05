@@ -14,6 +14,8 @@ local function Delay()
     task.wait((Stats.PerformanceStats.Ping:GetValue() / 2000) + .25)
 end
 
+if not game:IsLoaded() then game.Loaded:Wait() end
+    
 if game.PlaceId == 6764533218 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
     if not LocalPlayer:WaitForChild("HatchInfo"):WaitForChild("isParticipating").Value then
