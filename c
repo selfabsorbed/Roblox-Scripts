@@ -39,15 +39,12 @@ if game.PlaceId == 6764533218 then
     end)
 
     ReplicatedStorage:WaitForChild("MiscRemotes"):WaitForChild("THE_HATCH"):FireServer("SpawnEgg")
-
+    
 elseif game.PlaceId == 11170059897 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
 
 elseif game.PlaceId == 98209635344835 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
     ReplicatedStorage:WaitForChild("TeleportRequest"):InvokeServer(2563713593)
-
+    
 end
-
-queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
-game:GetService("TeleportService"):Teleport(98209635344835)
