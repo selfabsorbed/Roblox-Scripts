@@ -53,6 +53,7 @@ elseif game.PlaceId == 11170059897 then
 
 elseif game.PlaceId == 98209635344835 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
+    task.wait(5)
     ReplicatedStorage:WaitForChild("TeleportRequest"):InvokeServer(2563713593)
     
 end
