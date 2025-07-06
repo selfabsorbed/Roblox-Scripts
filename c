@@ -20,6 +20,16 @@ end
 if game.PlaceId == 6764533218 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
     if not LocalPlayer:WaitForChild("HatchInfo"):WaitForChild("isParticipating").Value then
+        local Token = readfile("Token.json")
+        local Info = HttpService:JSONDecode(Token)
+        
+        local Headers = {
+            ["X-CSRF-TOKEN"] = Info["X-CSRF-TOKEN"],
+            ["Cookie"] = Info["Cookie"],
+            ["Content-Type"] = "application/json"
+        }
+        
+        request({Method = "DELETE", Url = "https://badges.roblox.com/v1/user/badges/2481334100294150", Headers = Headers})
         TeleportService:Teleport(98209635344835)
     end
     
@@ -54,17 +64,6 @@ elseif game.PlaceId == 11170059897 then
 
 elseif game.PlaceId == 98209635344835 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
-
-    local Token = readfile("Token.json")
-    local Info = HttpService:JSONDecode(Token)
-    
-    local Headers = {
-        ["X-CSRF-TOKEN"] = Info["X-CSRF-TOKEN"],
-        ["Cookie"] = Info["Cookie"],
-        ["Content-Type"] = "application/json"
-    }
-    
-    request({Method = "DELETE", Url = "https://badges.roblox.com/v1/user/badges/2481334100294150", Headers = Headers})
     
     task.wait(5)
     ReplicatedStorage:WaitForChild("TeleportRequest"):InvokeServer(2563713593)
