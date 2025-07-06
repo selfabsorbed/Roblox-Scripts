@@ -1,5 +1,3 @@
-if not game:IsLoaded() then game.Loaded:Wait() end
-
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
