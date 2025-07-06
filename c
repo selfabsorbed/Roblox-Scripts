@@ -74,7 +74,7 @@ elseif game.PlaceId == 98209635344835 then
         if Success then
             Response = HttpService:JSONDecode(Response.Body)
 
-            for a,ba in Response do print(a,b) end
+            for a,b in Response do print(a,b) end
             if #Response == 0 or Response.errors[1].code == 1 then
                 Deleted = true
             end
