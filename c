@@ -47,7 +47,10 @@ if game.PlaceId == 6764533218 then
 
     Delay()
     ReplicatedStorage:WaitForChild("MiscRemotes"):WaitForChild("THE_HATCH"):FireServer("SpawnEgg")
-    
+    local Start = os.clock()
+    repeat task.wait() until (os.clock() - Start) > 10
+    TeleportService:Teleport(98209635344835)
+
 elseif game.PlaceId == 11170059897 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
 
@@ -68,7 +71,7 @@ elseif game.PlaceId == 98209635344835 then
         local Success, Response = pcall(function()
             return request({Method = "DELETE", Url = "https://badges.roblox.com/v1/user/badges/2481334100294150", Headers = Headers})
         end)
-        if Success then Deleted = true end
+        if Success and #Response.Body == 0 then Deleted = true end
         task.wait()
     until Deleted
 
