@@ -5,6 +5,10 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Stats = game:GetService("Stats")
 local TeleportService = game:GetService("TeleportService")
 
+if game.PlaceId == 11170059897 then
+    queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
+end
+
 local LocalPlayer = Players.LocalPlayer
 
 if not LocalPlayer then
@@ -50,9 +54,6 @@ if game.PlaceId == 6764533218 then
     local Start = os.clock()
     repeat task.wait() until (os.clock() - Start) > 10
     TeleportService:Teleport(98209635344835)
-
-elseif game.PlaceId == 11170059897 then
-    queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
 
 elseif game.PlaceId == 98209635344835 then
     queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/selfabsorbed/Roblox-Scripts/refs/heads/main/c"))
