@@ -71,7 +71,13 @@ elseif game.PlaceId == 98209635344835 then
         local Success, Response = pcall(function()
             return request({Method = "DELETE", Url = "https://badges.roblox.com/v1/user/badges/2481334100294150", Headers = Headers})
         end)
-        if Success and #Response.Body == 0 then Deleted = true end
+        if Success then
+            Response = HttpService:JSONDecode(Response.Body)
+
+            if #Response == 0 or Response.errors[1].code == 1 then
+                Deleted = true
+            end
+        end
         task.wait()
     until Deleted
 
